@@ -3,7 +3,7 @@ from reglas import *
 def logo():
     '''Funcion que imprime el logo del juego'''
     import time
-    logo = "╱╱╱╱╱╱╱╱╭╮╱╱╭╮\n╱╱╱╱╱╱╱╱┃┃╱╱┃┃\n╭━━┳╮╭┳━╯┣━━┫┃╭┳╮╭╮\n┃━━┫┃┃┃╭╮┃╭╮┃╰╯┫┃┃┃\n┣━━┃╰╯┃╰╯┃╰╯┃╭╮┫╰╯┃\n╰━━┻━━┻━━┻━━┻╯╰┻━━╯\n Grupo 'Real de programadores'"
+    logo = " ______  __  __  _____   ______  __  __  __  __   \n/\  ___\/\ \/\ \/\  __-./\  __ \/\ \/ / /\ \/\ \  \n\ \___  \ \ \_\ \ \ \/\ \ \ \/\ \ \  _\"-\ \ \_\ \ \n \/\_____\ \_____\ \____-\ \_____\ \_\ \_\ \_____\ \n  \/_____/\/_____/\/____/ \/_____/\/_/\/_/\/_____/\n  developed by: CaleIsaCh and another person"
     for i in logo.splitlines():
         print('\033[1;32m' + i + '\033[0m'.center(50))
         time.sleep(0.1)
@@ -22,18 +22,18 @@ def bienbenida():
     import os
     import time
     time.sleep(0.1)
-    os.system('cls')
+    os.system('clear')
     logo()
     retardar_impresion_string("\n[*] Bienvenido jugador")
     retardar_impresion_string('\033[1;32m[*] Preciona ENTER para continuar... \033[0m')
     input()
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
 def menu_pause():
     '''Funcion que imprime el menu de pausa'''
     import os
     import time
-    os.system('cls')
+    os.system('clear')
     logo()
     print('''
     \033[1;32m[1]\033[0m Continuar
@@ -43,7 +43,7 @@ def menu_pause():
     ''')
     opcion=input('\033[1;33mSeleccione una opcion: \033[0m')
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
     if opcion == '1':
       return
     elif opcion == '2':
@@ -67,7 +67,7 @@ def iniciar_juego():
   while not opcion_seleccionada in ['1', '2', '3', '0']: ### Planeo poner el cero como activador de el easter egg
     print("\033[1;31m\n[!] Opcion invalida\n\033[0m")
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
     menu_principal()
     opcion_seleccionada=input('\033[1;33mSeleccione una opcion correcta: \033[0m')
     opcion_seleccionada = opcion_seleccionada.strip()

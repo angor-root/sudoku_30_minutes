@@ -115,9 +115,6 @@ def cumple_reglas_del_juego(tablero_bool,tablero_seleccionado,entrada_fila,entra
     if not puede_modificar_el_digito(tablero_bool,entrada_fila,entrada_columna) and casilla_ocupada(tablero_seleccionado,entrada_fila,entrada_columna):
         print('\033[1;31m[!] Esta casilla no es modificable\033[0;m')
         return False
-    # if casilla_ocupada(tablero_seleccionado,entrada_fila,entrada_columna):
-    #    print('Jugada invalida: \033[1;31mLa casilla esta ocupada\033[0;0m')
-    #    return False
     elif se_repite_cifra_en_fila(tablero_seleccionado,entrada_fila,entrada_columna,digito) and se_repite_cifra_en_columna(tablero_seleccionado,entrada_fila,entrada_columna,digito) and se_repite_cifra_en_cuadricula(tablero_seleccionado,entrada_fila,entrada_columna,digito):
         print('Jugada invalida: \033[1;31mLa cifra se repite en la fila, columna y cuadricula\033[0;0m')
         return False
@@ -139,9 +136,6 @@ def cumple_reglas_del_juego(tablero_bool,tablero_seleccionado,entrada_fila,entra
     elif se_repite_cifra_en_cuadricula(tablero_seleccionado,entrada_fila,entrada_columna,digito):
         print('Jugada invalida: \033[1;31mLa cifra se repite en la cuadricula\033[0;0m')
         return False
-    # if tablero_seleccionado[entrada_fila-1][entrada_columna-1]!=0:
-    #     print('\033[1;31m'+"La casilla ya está ocupada, por favor seleccione otra casilla"+'\033[0;m')
-    #     return False
     for i in range(9):
         if tablero_seleccionado[entrada_fila-1][i]==digito:
             print("Jugada invalida:\033[1;31m Se repite cifra en la misma fila\033[0m")
@@ -233,7 +227,7 @@ def menu_previo():
     import time
     from menus import menu_pause
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
     print('''\033[1;35m\n[*] DIFICULTAD DEL TABLERO: \033[1;m
       \033[1;36m[1] Fácil\033[0;m
       \033[1;32m[2] Normal\033[0;m
@@ -245,21 +239,18 @@ def menu_previo():
     while dificultad_tablero not in ['1','2','3','4','', 'prueba']:
         print('\033[1;31m\n[!] Opción inválida\033[0m')
         time.sleep(0.5)
-        os.system('cls')
+        os.system('clear')
         menu_previo()
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
     nombre_jugador = input("\033[1;32;40m \n Nombre del jugador: \033[0;37;40m")
     nombre_tablero = input("\033[1;36;40m Nombre del tablero: \033[0;37;40m")
     time.sleep(0.5)
-    os.system('cls')
-    #retardar_impresion_string('\033[1;34m\n[*] Cargando tablero...\033[0m') #### Descomentar estas lineas
-    #retardar_impresion_string('\033[1;34m\n[?] ¿Preparado?\033[0m')
-    #retardar_impresion_string('\033[1;34m\n[!] Prepara tus pantalones\033[0m')
+    os.system('clear')
     time.sleep(0.6)
     print('\033[1;32m\n[*] ¡Comencemos!\033[0m')
     time.sleep(0.3)
-    os.system('cls')
+    os.system('clear')
     return dificultad_tablero, nombre_jugador, nombre_tablero
 def mostraropciones():
     import os
@@ -285,7 +276,6 @@ def empezar_partida(): ################ Aqui esta toda la logica del juego
     tablero_bool = convertir_tablero_a_bool(tablero_seleccionado)
     guardardatos(tablero_seleccionado, nombre_tablero)
     guardardatosbool(tablero_bool,nombre_bool)
-    # print_tablero(tablero_seleccionado,nombre_tablero,tablero_bool)
     print_tablero(tablero_seleccionado,nombre_tablero,tablero_bool)
     while not tablero_completo(tablero_seleccionado):
         entrada_datos = input("Ingrese la fila, columna y digito: ")
@@ -293,10 +283,10 @@ def empezar_partida(): ################ Aqui esta toda la logica del juego
         if entrada_datos == 'exit':
             print('Guardando tablero...')
             time.sleep(1.5)
-            os.system('cls')
+            os.system('clear')
             print('Tablero guardado')
             time.sleep(1.5)
-            os.system('cls')
+            os.system('clear')
             iniciar_juego()
         elif entrada_datos == 'el pueblo pide awa':
             tablero_solu_temp = tablero_seleccionado.copy()
@@ -327,7 +317,7 @@ def empezar_partida(): ################ Aqui esta toda la logica del juego
             guardardatos(tablero_seleccionado, nombre_tablero)
             guardardatosbool(tablero_bool, nombre_bool)
             time.sleep(0.5)
-            os.system('cls')
+            os.system('clear')
             print_tablero(tablero_seleccionado,nombre_tablero,tablero_bool)
     print('''\033[1;36m
     █▀▀ █▀▀ █░░ █ █▀▀ █ █▀▄ ▄▀█ █▀▄ █▀▀ █▀ █ █ █
@@ -358,10 +348,10 @@ def continuar_partida():
         if entrada_datos == 'exit':
             print('Guardando tablero...')
             time.sleep(1.5)
-            os.system('cls')
+            os.system('clear')
             print('Tablero guardado')
             time.sleep(1.5)
-            os.system('cls')
+            os.system('clear')
             iniciar_juego()
         elif entrada_datos == 'el pueblo pide awa':
             tablero_solu_temp = tablero_continuado.copy()
@@ -392,7 +382,7 @@ def continuar_partida():
             guardardatos(tablero_continuado,nombre_tablero)
             guardardatosbool(tablero_bool, nombre_bool)
             time.sleep(0.5)
-            os.system('cls')
+            os.system('clear')
             # guardar_tablero(tablero_seleccionado,nombre_tablero)
             print_tablero(tablero_continuado, nombre_tablero, tablero_bool)
     print('''\033[1;36m
@@ -407,7 +397,7 @@ def easter_egg():
     import os
     import time
     time.sleep(0.8)
-    os.system('cls')
+    os.system('clear')
     print('''                                                                   
                            .**********,,.                             
                         .*/////***********,                           
@@ -437,7 +427,7 @@ def easter_egg():
     time.sleep(0.8)
     retardar_impresion_string('\033[1;31mTe quiero mucho profe Nuñez:)\033[0m'.center(70))
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
     retardar_impresion_string('''\033[1;32mdeveloped by: CaleIsaCh and another person\033[0m'''.center(70))
     retardar_impresion_string('''\033[1;36mwith the help of: Ramos, Gonzalo, Angel, Naoki y Chipana.\033[0m'''.center(70))
     time.sleep(0.5)
@@ -445,5 +435,5 @@ def easter_egg():
     time.sleep(0.5)
     retardar_impresion_string('\033[1;31m\n[*] Finalizando programa...\033[0m '.center(70))
     time.sleep(0.5)
-    os.system('cls')
+    os.system('clear')
     exit()

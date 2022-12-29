@@ -75,22 +75,22 @@ def generar_tablero_incompleto_valido(dificultad):
     tablero_seleccionado = resolver_tablero(generar_tablero_completo())
     # Elimina números
     if dificultad == '1' or dificultad == '':
-        for i in range(8):
+        for i in range(35):
             a = random.randint(0, 8)
             b = random.randint(0, 8)
             tablero_seleccionado[a][b] = 0
     elif dificultad == '2':
-        for i in range(14):
+        for i in range(45):
             a = random.randint(0, 8)
             b = random.randint(0, 8)
             tablero_seleccionado[a][b] = 0
     elif dificultad == '3':
-        for i in range(17):
+        for i in range(55):
             a = random.randint(0, 8)
             b = random.randint(0, 8)
             tablero_seleccionado[a][b] = 0
     elif dificultad == '4': 
-        for i in range(20):
+        for i in range(64):
             a = random.randint(0, 8)
             b = random.randint(0, 8)
             tablero_seleccionado[a][b] = 0
